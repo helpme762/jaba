@@ -84,22 +84,20 @@ void __fastcall TForm1::EditMassKeyDown(TObject *Sender, WORD &Key,
 void __fastcall TForm1::StringGrid1KeyPress(TObject *Sender, char &Key)
 {
 	if(Key==13){
-		AnsiString S=StringGrid1->Cells[2][StringGrid1->RowCount-1];
+//		AnsiString S=StringGrid1->Cells[2][StringGrid1->RowCount-1];
 		StringGrid1->Cells[0][StringGrid1->RowCount-1]=IntToStr(Number+1);
-		if ( S.Length() && StrToInt(S) ){
+		if ( StringGrid1->Cells[2][StringGrid1->RowCount-1].Length() && Number < 127){
 
-			Var[Number]=SortNdx[Number]=StrToInt(S);
-			Number++;
-
-			StringGrid1->RowCount++;
-			StringGrid1->Rows[StringGrid1->RowCount-1]->Clear();
-
-			TGridRect myRect;
-			myRect.Left = 2;
-			myRect.Top = Number+1;
-			myRect.Right = 2;
-			myRect.Bottom = Number+1;
-			StringGrid1->Selection = myRect;
+//			Var[Number]=SortNdx[Number]=StrToInt(S);
+				Number++;;
+				StringGrid1->RowCount++;
+				StringGrid1->Rows[StringGrid1->RowCount-1]->Clear();
+				TGridRect myRect;
+				myRect.Left = 2;
+				myRect.Top = Number+1;
+				myRect.Right = 2;
+				myRect.Bottom = Number+1;
+				StringGrid1->Selection = myRect;
 			}
 		}
 }
@@ -107,9 +105,15 @@ void __fastcall TForm1::StringGrid1KeyPress(TObject *Sender, char &Key)
 
 void __fastcall TForm1::BitBtnGoClick(TObject *Sender)
 {
-	Mass=StrToInt(EditMass->Text);
-	Sorten();
 	int n,sum=0;
+	Mass=StrToInt(EditMass->Text);
+	//Number=StringGrid1->ColCount;
+	for(n=0; n<Number; n++){
+		Var[n]=SortNdx[n]=StrToInt(StringGrid1->Cells[2][n+1]);
+		}
+
+	Sorten();
+
 	MaxN=MinN=0;
 
 	for (n=0; n<Number; n++){

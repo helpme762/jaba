@@ -1,76 +1,73 @@
-# ---------------------------------------------------------------------------
-VERSION = BCB.03
-# ---------------------------------------------------------------------------
-!ifndef BCB
-BCB = $(MAKEDIR)\..
-!endif
-# ---------------------------------------------------------------------------
-PROJECT = Jaba.exe
-OBJFILES = Jaba.obj Unit1.obj
-RESFILES = Jaba.res
-RESDEPEN = $(RESFILES) Unit1.dfm
-LIBFILES =
-LIBRARIES =
-SPARELIBS = VCL35.lib
-DEFFILE =
-PACKAGES = VCLX35.bpi VCL35.bpi VCLDB35.bpi VCLDBX35.bpi bcbsmp35.bpi dclocx35.bpi \
-  QRPT35.bpi TEEUI35.bpi TEEDB35.bpi TEE35.bpi ibsmp35.bpi DSS35.bpi NMFAST35.bpi \
-  INETDB35.bpi INET35.bpi VCLMID35.bpi FrameViewer.bpi RXCTL.bpi RXDB.bpi
-PATHASM = .;
-PATHCPP = .;
-PATHPAS = .;
-PATHRC = .;
-DEBUGLIBPATH = $(BCB)\lib\debug
-RELEASELIBPATH = $(BCB)\lib\release
-# ---------------------------------------------------------------------------
-CFLAG1 = -Od -Hc -w -Ve -r- -d -k -y -v -vi- -c -b- -w-par -w-inl -Vx
-CFLAG2 = -D_ATL_SINGLE_THREADED;_RTLDLL;USEPACKAGES \
-  -I$(BCB)\include;$(BCB)\include\vcl;$(BCB)\thtml\pascal;$(BCB)\rx\units \
-  -H=$(BCB)\lib\vcld.csm
-CFLAG3 = -5
-PFLAGS = -D_ATL_SINGLE_THREADED;_RTLDLL;USEPACKAGES \
-  -U$(BCB)\lib\obj;$(BCB)\lib;$(BCB)\thtml\pascal;$(BCB)\rx\units;$(DEBUGLIBPATH) \
-  -I$(BCB)\include;$(BCB)\include\vcl;$(BCB)\thtml\pascal;$(BCB)\rx\units -$Y -$W \
-  -$O- -v -JPHNV -M
-RFLAGS = -D_ATL_SINGLE_THREADED;_RTLDLL;USEPACKAGES \
-  -i$(BCB)\include;$(BCB)\include\vcl;$(BCB)\thtml\pascal;$(BCB)\rx\units
-AFLAGS = /i$(BCB)\include /i$(BCB)\include\vcl /i$(BCB)\thtml\pascal /i$(BCB)\rx\units \
-  /d_ATL_SINGLE_THREADED /d_RTLDLL /dUSEPACKAGES /mx /w1 /zi
-LFLAGS = -L$(BCB)\lib\obj;$(BCB)\lib;$(BCB)\thtml\pascal;$(BCB)\rx\units;$(DEBUGLIBPATH) \
-  -aa -Tpe -x -Gn -v
-IFLAGS = -g
-!if !$d(BCC32)
-BCC32 = bcc32
-!endif
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="Jaba.exe"/>
+    <OBJFILES value="Jaba.obj Unit1.obj"/>
+    <RESFILES value="Jaba.res"/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES) Unit1.dfm"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value="vcl.lib rtl.lib"/>
+    <SPARELIBS value="rtl.lib vcl.lib"/>
+    <PACKAGES value="vclx.bpi rtl.bpi vcl.bpi dbrtl.bpi vcldb.bpi bdertl.bpi vcldbx.bpi 
+      bcbsmp.bpi dclocx.bpi qrpt.bpi teeui.bpi teedb.bpi tee.bpi ibsmp.bpi 
+      dss.bpi nmfast.bpi inetdb.bpi inet.bpi dsnap.bpi RXCTL.bpi RXDB.bpi"/>
+    <PATHCPP value=".;"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value=""/>
+    <SYSDEFINES value="NO_STRICT;_ATL_SINGLE_THREADED"/>
+    <MAINSOURCE value="Jaba.cpp"/>
+    <INCLUDEPATH value="$(BCB)\include;$(BCB)\include\vcl;$(BCB)\thtml\pascal;$(BCB)\rx\units"/>
+    <LIBPATH value="$(BCB)\lib\obj;$(BCB)\lib;$(BCB)\thtml\pascal;$(BCB)\rx\units"/>
+    <WARNINGS value="-w-par -w-8027 -w-8026"/>
+    <WARNOPTSTR value=""/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-I$(BCB)\include -I$(BCB)\include\vcl -I$(BCB)\thtml\pascal 
+      -I$(BCB)\rx\units -src_suffix cpp -boa"/>
+    <CFLAG1 value="-O2 -H=c:\PROGRA~1\borland\CBUILD~2\lib\vcld.csm -Hc -Vx -Ve -X- -a8 -b- 
+      -d -k- -vi -c -tWM"/>
+    <CFLAG2 value=""/>
+    <CFLAG3 value=""/>
+    <PFLAGS value="-$Y- -$L- -$D- -$A8 -v -JPHNV -M -JPHNE"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w1 /zn"/>
+    <LFLAGS value="-D&quot;&quot; -aa -Tpe -x -Gn"/>
+    <IFLAGS value=""/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0w32.obj sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mt.lib"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="Jaba.cpp" FORMNAME="" UNITNAME="Jaba" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Jaba.res" FORMNAME="" UNITNAME="Jaba" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Unit1.cpp" FORMNAME="Form1" UNITNAME="Unit1" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
 
-!if !$d(DCC32)
-DCC32 = dcc32
-!endif
-
-!if !$d(LINKER)
-LINKER = ilink32
-!endif
-
-!if !$d(BRCC32)
-BRCC32 = brcc32
-!endif
-
-# ---------------------------------------------------------------------------
-ALLOBJ = c0w32.obj $(PACKAGES) sysinit.obj $(OBJFILES)
-ALLRES = $(RESFILES)
-ALLLIB = $(LIBFILES) $(LIBRARIES) import32.lib cp32mti.lib
-# ---------------------------------------------------------------------------
-.autodepend
-
-!ifdef IDEOPTIONS
-
+  <IDEOPTIONS>
 [Version Info]
 IncludeVerInfo=1
 AutoIncBuild=1
 MajorVer=1
 MinorVer=0
 Release=0
-Build=13
+Build=22
 Debug=0
 PreRelease=0
 Special=0
@@ -80,11 +77,11 @@ Locale=1033
 CodePage=1252
 
 [Version Info Keys]
-CompanyName=
+CompanyName=RGB-Group
 FileDescription=
-FileVersion=1.0.0.13
+FileVersion=1.0.0.22
 InternalName=
-LegalCopyright=
+LegalCopyright=BoB Copyright
 LegalTrademarks=
 OriginalFilename=
 ProductName=
@@ -116,32 +113,29 @@ DebugSourceDirs=
 
 [Parameters]
 RunParams=
+Launcher=
+UseLauncher=0
+DebugCWD=
 HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
 
-!endif
+[Compiler]
+ShowInfoMsgs=1
+LinkDebugVcl=0
+LinkCGLIB=0
 
-$(PROJECT): $(OBJFILES) $(RESDEPEN) $(DEFFILE)
-    $(BCB)\BIN\$(LINKER) @&&!
-    $(LFLAGS) +
-    $(ALLOBJ), +
-    $(PROJECT),, +
-    $(ALLLIB), +
-    $(DEFFILE), +
-    $(ALLRES)
-!
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
 
-.pas.hpp:
-    $(BCB)\BIN\$(DCC32) $(PFLAGS) { $** }
-
-.pas.obj:
-    $(BCB)\BIN\$(DCC32) $(PFLAGS) { $** }
-
-.cpp.obj:
-    $(BCB)\BIN\$(BCC32) $(CFLAG1) $(CFLAG2) $(CFLAG3) -o$* $*
-
-.c.obj:
-    $(BCB)\BIN\$(BCC32) $(CFLAG1) $(CFLAG2) $(CFLAG3) -o$* $**
-
-.rc.res:
-    $(BCB)\BIN\$(BRCC32) $(RFLAGS) $<
-# ---------------------------------------------------------------------------
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
+  </IDEOPTIONS>
+</PROJECT>
