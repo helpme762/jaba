@@ -2,7 +2,7 @@
 <!-- C++Builder XML Project -->
 <PROJECT>
   <MACROS>
-    <VERSION value="BCB.06.00"/>
+    <VERSION value="BCB.06. 00"/>
     <PROJECT value="Jaba.exe"/>
     <OBJFILES value="Jaba.obj Unit1.obj"/>
     <RESFILES value="Jaba.res"/>
